@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import FacebookPixel from "@/components/FacebookPixel";
+import PageViewTracker from "@/components/PageViewTracker";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,6 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <FacebookPixel />
+        <PageViewTracker/>
         {children}
       </body>
     </html>
