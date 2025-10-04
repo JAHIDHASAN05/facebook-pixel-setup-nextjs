@@ -18,7 +18,9 @@ export const event = (name: string, options = {}) => {
 export const customEvent = (name: string, options = {}) => {
   fbq("trackCustom", name, options);
 };
-
+ export const trackEvent = (event: string, params?: Record<string, any>) => {
+  fbq("track", event, params);
+};
 
 export default function PageViewTracker() {
   const pathname = usePathname();
