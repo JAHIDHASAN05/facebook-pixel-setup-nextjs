@@ -34,7 +34,7 @@
     "next-env.d.ts",
     "types/**/*.d.ts",
     ".next/types/**/*.ts"
-  ],
+, "app/rodro-english-parena/page.jsx", "app/test/page.jsx"  ],
   "exclude": [
     "node_modules"
   ]

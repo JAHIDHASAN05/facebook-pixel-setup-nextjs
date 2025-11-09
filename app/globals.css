@@ -5,6 +5,18 @@
   --foreground: #171717;
 }
 
+
+/* Fix Jodit list styles inside the editor */
+.jodit-wysiwyg ul {
+  list-style-type: disc !important;
+  margin-left: 1.5rem;
+}
+
+.jodit-wysiwyg ol {
+  list-style-type: decimal !important;
+  margin-left: 1.5rem;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -24,3 +36,1239 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes loading-bar {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 80%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-loading-bar {
+  animation: loading-bar 2.5s ease-in-out infinite alternate;
+}
+
+
+@theme {
+  /* Custom Colors */
+  --color-primary: #fd7401 !important;
+  --color-primary-hover: #e56e01 !important;
+  --color-primary-light: #fff3e1;
+  --color-dark-brown: #1e1b14;
+  --color-dark-blue: #22212a;
+  --color-slate-blue-400: #98a2b3;
+  --color-slate-blue-700: #667085cc;
+
+  --color-secondary: #2d3748;
+  --color-accent: #4a5568;
+  --color-silver: #dcdcdc;
+  --color-silver-lighter: #f1f3f6;
+  --color-silver-dark: #d9d9d9;
+  --color-black-light: #1e1e1e;
+  --color-brown: #ba7d15;
+
+  /* Custom Breakpoints */
+  --breakpoint-mini: 320px;
+  --breakpoint-small: 350px;
+  --breakpoint-iphone: 375px;
+  --breakpoint-xxs: 375px;
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+@layer components {
+  @media (min-width: 0) {
+    .container {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1024px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      max-width: 1280px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .container {
+      max-width: 1536px;
+    }
+  }
+}
+
+
+
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+
+
+
+
+
+
+
+
+
+
+@keyframes border-move {
+  0%   { background-position:   0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position:   0% 50%; }
+}
+
+/* —— Keenlys Marquee —— */
+@keyframes keenlys-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); } /* move by half because we duplicated items */
+}
+
+.keenlys-marquee-group {
+  overflow: hidden;
+  position: relative;
+}
+
+.keenlys-marquee-track {
+  display: flex;
+  width: max-content;        /* allow natural width */
+  will-change: transform;
+  animation-name: keenlys-marquee;
+  animation-timing-function: linear;
+  animation-duration: var(--marquee-duration, 12000ms);
+  animation-iteration-count: var(--marquee-iteration, infinite);
+}
+
+/* Pause on hover (no JS needed) */
+.keenlys-marquee-group:hover .keenlys-marquee-track {
+  animation-play-state: paused;
+}
+
+/* Item sizing (approx slidesPerView feel) */
+.keenlys-marquee-item {
+  position: relative;
+  height: 10rem;             /* h-40 */
+  width: 9rem;               /* ~w-36 */
+  margin-right: 16px;        /* spaceBetween 16 */
+  border-radius: 1rem;       /* rounded-2xl */
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+
+@media (min-width: 640px) { .keenlys-marquee-item { width: 10rem; } }  /* sm:w-40 */
+@media (min-width: 768px) { .keenlys-marquee-item { width: 11rem; } }  /* md:w-44 */
+@media (min-width: 1024px){ .keenlys-marquee-item { width: 12rem; } }  /* lg:w-48 */
+ 
+/* ::selection {
+  background: yellow;
+} */
+
+
+.marquee-swiper .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+@keyframes aurora {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+.animate-aurora {
+  background-size: 400% 400%;
+  animation: aurora 10s ease infinite;
+}
+
+
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@keyframes iconVibrate {
+  0% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(-1px, -1px); }
+  60% { transform: translate(1px, 1px); }
+  80% { transform: translate(1px, -1px); }
+  100% { transform: translate(0); }
+}
+
+.icon-anim {
+  display: inline-block;
+  animation: iconPulse 2s infinite ease-in-out,
+             iconVibrate 1.5s infinite ease-in-out;
+}
+
+.text-underLine-animation-primary {
+  position: relative;
+  display: inline-block;
+
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.text-underLine-animation-primary::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: 0;
+  left: -100%;
+  background-color: currentColor;
+  color: #f3c45b;
+  transition: left 0.5s ease;
+}
+
+.text-underLine-animation-primary:hover::after {
+  left: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  60% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+.shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+.rdp-month > table {
+  /* border: 1px solid black !important; */
+  border-radius: 8px !important;
+  overflow: hidden;
+  border-collapse: separate;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.rdp-day_disabled {
+  cursor: not-allowed !important;
+  opacity: 0.5;
+}
+
+.rdp-disabled > button {
+  cursor: not-allowed !important;
+}
+.rdp-day_button {
+  /* cursor:not-allowed !important; */
+}
+
+.rdp-selected {
+  background: transparent !important;
+  /* border: 1px solid black !important; */
+  border-radius: 100% !important;
+}
+
+.rdp-selected .rdp-day_button {
+  /* border:0 !important
+   */
+
+  background: lightblue;
+}
+
+
+
+button {
+  cursor: pointer;
+}
+
+@keyframes grow {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* Marquee mode: make slide transitions linear instead of ease */
+
+
+/* Step Number Circle */
+
+/* Vertical Line */
+.step-line {
+  position: absolute;
+  left: 24px; /* Centered relative to the circle */
+  top: 48px;
+  width: 4px;
+  background-color: #ff6a00;
+  animation: grow 1s ease-in-out infinite;
+}
+@keyframes grow {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Step Content */
+
+.sidebar-group {
+  @apply flex w-full flex-col gap-y-2;
+}
+
+.sidebar-group-title {
+  @apply overflow-hidden text-ellipsis text-sm font-medium text-slate-600 dark:text-slate-400;
+}
+
+.sidebar-item {
+  @apply flex h-[40px] w-full flex-shrink-0 items-center gap-x-3 rounded-lg p-3 text-base font-medium text-slate-900 transition-colors hover:bg-blue-50 dark:text-slate-50 dark:hover:bg-blue-950;
+  &.active {
+    @apply bg-primary text-slate-50 dark:bg-primary;
+  }
+}
+
+.flyIn {
+  animation: flyInAnimation 0.5s ease-out forwards;
+}
+
+@keyframes flyInAnimation {
+  0% {
+    transform: translatey(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translatey(0);
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  @keyframes fast-blink {
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .animate-fast-blink {
+    animation: fast-blink 0.5s infinite ease-in-out;
+  }
+}
+
+.playButtonAnimation {
+  width: 100px; /* Set a fixed width */
+  height: 100px; /* Set a fixed height */
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%; /* Make it circular */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Maintain positioning for animations */
+  padding: 0; /* Prevent padding shifts */
+  border: none; /* Remove any default border */
+  outline: none; /* Remove outline on focus */
+}
+
+.playButtonAnimation:before,
+.playButtonAnimation:after {
+  content: "";
+  position: absolute; /* Absolute positioning */
+  width: 80px; /* Width of the wave */
+  height: 80px; /* Height of the wave */
+  background: rgba(6, 51, 84, 0.54); /* Wave color */
+  border-radius: 50%; /* Make it circular */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%) scale(0); /* Centering with scale */
+  opacity: 0; /* Start invisible */
+}
+
+.playButtonAnimation:before {
+  animation: waveFade 0.8s ease-out forwards, wavePulse 2s ease-out infinite;
+}
+
+.playButtonAnimation:after {
+  animation: waveFade 0.8s ease-out forwards, wavePulse2 2s ease-out infinite;
+  animation-delay: 0.4s; /* Delay for the second wave */
+}
+
+@keyframes waveFade {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes wavePulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5); /* Scale up */
+    opacity: 0; /* Fade out */
+  }
+}
+
+@keyframes wavePulse2 {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5); /* Scale up */
+    opacity: 0; /* Fade out */
+  }
+}
+
+/* Gradient Text Animation */
+.textAnimationWarm {
+  display: inline-block; /* Necessary for individual letters */
+  background: linear-gradient(
+    to right,
+    #FFA100,
+    #C5493C 50%,
+    #FFA100
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Text fill color transparent for gradient */
+  animation: gradientWarm 3s linear infinite;
+}
+
+/* Gradient Keyframe */
+@keyframes gradientWarm {
+  0% {
+    background-position: 0% 75%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 70%;
+  }
+}
+
+
+
+
+
+
+.textAnimation {
+  display: inline-block; /* Necessary for individual letters */
+  background: linear-gradient(
+    to right,
+    rgba(255, 206, 0, 1),
+    rgba(255, 0, 94, 1) 35%,
+    rgba(0, 204, 255, 1)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Text fill color transparent for gradient */
+  animation: gradient 3s linear infinite;
+}
+
+/* Gradient Keyframe */
+@keyframes gradient {
+  0% {
+    background-position: 0% 75%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 70%;
+  }
+}
+
+/* Up-Down Animation */
+@keyframes upDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Adjust the amount of movement */
+  }
+}
+
+/* Letter Animation */
+.letterAnimation {
+  display: inline-block;
+  animation: upDown 2s ease-in-out infinite;
+}
+
+/* Animation Delay for Each Letter */
+.letterAnimation:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.letterAnimation:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.letterAnimation:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.letterAnimation:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.letterAnimation:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+/* Space handling (no animation, keeps space in place) */
+.letterAnimation.space {
+  animation: none;
+  display: inline-block;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes dashed-fade {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.outer-circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 8px dashed yellow;
+  border-radius: 50%;
+  animation: spin 6s linear infinite, dashed-fade 3s ease-in-out infinite;
+}
+
+.inner-circle {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  border: 6px dashed orange;
+  border-radius: 50%;
+  animation: spin-reverse 8s linear infinite,
+    dashed-fade 2.5s ease-in-out infinite;
+}
+.outer-circle3 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 8px dashed yellow;
+  border-radius: 50%;
+  animation: spin 6s linear infinite;
+}
+
+.inner-circle4 {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  border: 6px dashed orange;
+  border-radius: 50%;
+  animation: spin-reverse 8s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes dashed-fade {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+/* Outer circle - Royal Blue */
+.outer-circle2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 60px dashed rgba(25, 118, 210, 0.9); /* Royal Blue */
+  border-radius: 50%;
+  animation: spin 6s linear infinite, dashed-fade 3s ease-in-out infinite;
+}
+
+/* Inner circle - Silver */
+.inner-circle1 {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  border: 40px dashed rgba(192, 192, 192, 0.9); /* Silver */
+  border-radius: 50%;
+  animation: spin-reverse 8s linear infinite,
+    dashed-fade 2.5s ease-in-out infinite;
+}
+
+/* Custom Date Picker Container */
+
+.react-datepicker {
+  border: none !important;
+  font-family: "Poppins", sans-serif;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Header (Month and Year) */
+.react-datepicker__header {
+  background: white !important;
+  border-bottom: none !important;
+}
+/* Month Title (September 2021) */
+.react-datepicker__current-month {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4a5660 !important; /* Red month title */
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Navigation Arrows */
+.react-datepicker__navigation {
+}
+
+.react-datepicker__navigation-icon::before {
+  margin-top: 10px;
+  border-color: #4a5660 !important;
+}
+
+/* Day Titles (SUN, MON, etc.) */
+.react-datepicker__day-names {
+  display: flex;
+  justify-content: space-between;
+  background: white !important;
+  padding: 10px 0;
+}
+
+.react-datepicker__day-name {
+  width: 40px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 10px;
+  color: #b5bec6 !important; /* Blue day titles */
+  text-transform: uppercase;
+}
+
+/* Day Buttons (1, 2, 3, ...) */
+.react-datepicker__day {
+  width: 30px; /* Square shape */
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4a5660;
+  background-color: white;
+  border: 1px solid transparent; /* No border by default */
+  cursor: pointer;
+  /* transition: all 0.3s ease-in-out; */
+}
+
+/* Hover Effect */
+.react-datepicker__day:hover {
+  background-color: #f04d23 !important; /* Light gray */
+  border: 1px solid #ddd !important;
+  color: #fff !important;
+}
+
+/* Selected Date */
+.react-datepicker__day--selected {
+  background-color: #f04d23 !important; /* Blue */
+  color: white !important;
+  font-weight: bold;
+  /* border: 1px solid #0056b3 !important; */
+}
+
+/* Hovering Over Selected Date */
+.react-datepicker__day--selected:hover {
+  background-color: #f04d23 !important; /* Darker blue */
+}
+
+/* Disabled Days */
+.react-datepicker__day--disabled {
+  color: #ccc !important;
+  cursor: not-allowed !important;
+  background: transparent !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+  color: black !important;
+  background-color: transparent !important;
+}
+
+.react-datepicker {
+  border: none !important;
+  font-family: "Poppins", sans-serif;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Header (Month and Year) */
+.react-datepicker__header {
+  background: white !important;
+  border-bottom: none !important;
+}
+
+/* Month Title (September 2021) */
+.react-datepicker__current-month {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4a5660 !important;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Navigation Arrows */
+/* .react-datepicker__navigation {
+  
+} */
+.react-datepicker__day--today {
+  font-weight: normal !important;
+}
+
+.react-datepicker__navigation-icon::before {
+  margin-top: 10px;
+  border-color: #4a5660 !important;
+}
+
+/* Day Titles (SUN, MON, etc.) */
+.react-datepicker__day-names {
+  display: flex;
+  justify-content: space-between;
+  background: white !important;
+  padding: 10px 0;
+}
+
+.react-datepicker__day-name {
+  width: 40px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  color: #b5bec6 !important;
+  text-transform: uppercase;
+}
+
+/* Day Buttons (1, 2, 3, ...) */
+.react-datepicker__day {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4a5660;
+  background-color: white;
+  /* border: 1px solid transparent;  */
+  cursor: pointer;
+}
+
+/* Hover Effect */
+.react-datepicker__day:hover {
+  background-color: #f04d23 !important;
+  border: 1px solid #ddd !important;
+  color: #fff !important;
+}
+
+/* Selected Date */
+.react-datepicker__day--selected {
+  background-color: #f04d23 !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+/* Hovering Over Selected Date */
+.react-datepicker__day--selected:hover {
+  background-color: #f04d23 !important;
+}
+
+/* Disabled Days */
+.react-datepicker__day--disabled {
+  color: #ccc !important;
+  cursor: not-allowed !important;
+  background: transparent !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+  color: black !important;
+  background-color: transparent !important;
+}
+
+/* Responsive Adjustments */
+
+/* For screens 768px and above */
+@media (min-width: 1024px) {
+  .react-datepicker__current-month {
+    font-size: 1.3rem; /* Slightly smaller font size */
+  }
+
+  .react-datepicker__day-name {
+    font-size: 12px !important; /* Slightly smaller day titles */
+  }
+
+  .react-datepicker__day {
+    font-size: 13px; /* Slightly smaller font size for day buttons */
+  }
+}
+
+/* For screens smaller than 768px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .react-datepicker__day {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .react-datepicker__day-name {
+    width: 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px !important;
+    color: #b5bec6 !important;
+    text-transform: uppercase;
+  }
+
+  .react-datepicker__current-month {
+    font-size: 1rem; /* Reduce the font size for medium screens */
+  }
+
+  .react-datepicker__day-name {
+    font-size: 10px; /* Reduce day name font size for medium screens */
+  }
+
+  .react-datepicker__day {
+    font-size: 10px; /* Reduce day button font size for medium screens */
+  }
+}
+
+.rbc-btn-group:first-child {
+  /* display: none !important; */
+}
+
+.rbc-toolbar-label {
+  text-align: right !important;
+  padding: 0px 20px !important;
+}
+
+.rbc-btn-group:last-child {
+  font-size: 13px !important;
+}
+
+.rbc-btn-group:last-child button {
+  border: none !important;
+  background-color: #f1f0ff !important;
+  margin-left: 2px !important;
+}
+
+.rbc-toolbar button.rbc-active {
+  background-color: #dbdafe !important;
+  box-shadow: none !important;
+}
+
+.rbc-time-view {
+  border-color: #eee !important;
+}
+
+.rbc-time-header {
+  display: none !important;
+}
+
+.rbc-time-content {
+  border: none !important;
+}
+
+.rbc-time-gutter.rbc-time-column {
+  font-size: 12px !important;
+}
+
+.rbc-time-gutter.rbc-time-column .rbc-timeslot-group {
+  padding: 0px 20px !important;
+}
+
+.rbc-timeslot-group {
+  background-color: #f7fdff !important;
+}
+
+.rbc-day-slot {
+  font-size: 14px !important;
+}
+
+.rbc-event {
+  border: none !important;
+  color: black !important;
+  padding: 10px !important;
+  margin: 10px !important;
+  width: 99% !important;
+}
+
+.rbc-event:nth-child(1) {
+  background-color: #e2f8ff !important;
+}
+.rbc-event:nth-child(2) {
+  background-color: #fefce8 !important;
+}
+.rbc-event:nth-child(3) {
+  background-color: #f2f1ff !important;
+}
+.rbc-event:nth-child(4) {
+  background-color: #fdf2fb !important;
+}
+.rbc-event:nth-child(5) {
+  background-color: #e2f8ff !important;
+}
+.rbc-event:nth-child(6) {
+  background-color: #fefce8 !important;
+}
+.rbc-event:nth-child(7) {
+  background-color: #f2f1ff !important;
+}
+.rbc-event:nth-child(8) {
+  background-color: #fdf2fb !important;
+}
+
+.rbc-event-label {
+  color: gray !important;
+  margin-bottom: 5px;
+}
+.rbc-event {
+  background-color: #f7b267;
+  color: #000;
+  border-radius: 8px;
+  padding: 4px;
+  font-weight: 500;
+}
+
+.fc-event-main {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.fc-v-even {
+  border: 0 !important;
+}
+.fc-timegrid-slot {
+  min-width: 100px !important;
+  height: 45px !important;
+  font-size: 20px;
+}
+.fc-event-main-frame {
+  background-color: red !important;
+  color: black;
+  border: 1px solid black !important;
+}
+
+/* Customize FullCalendar header toolbar */
+.fc-toolbar {
+  background-color: #f8fafc;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 1rem;
+}
+
+.fc .fc-toolbar-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: none;
+  width: max-content !important;
+  color: #1f2937;
+}
+
+.fc .fc-button {
+  background-color: red;
+  border: none;
+  border-radius: 0.375rem;
+  color: white;
+  font-size: 0.875rem;
+  padding: 0.375rem 0.75rem;
+  margin: 0 0.25rem;
+  transition: background-color 0.2s ease;
+}
+
+.fc .fc-button:hover {
+  background-color: red;
+}
+
+.fc .fc-button-primary:not(:disabled).fc-button-active {
+  background-color: yellow;
+}
+
+/* Calendar body: time slots, grid, etc. */
+.fc .fc-scrollgrid {
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  /* overflow: hidden; */
+}
+
+.fc .fc-col-header-cell {
+  background-color: #f1f5f9;
+  color: #848585;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+}
+
+.fc .fc-daygrid-day {
+  background-color: #ffffff;
+}
+
+.fc .fc-timegrid-slot {
+  height: 2.5rem;
+  border-color: #e2e8f0;
+}
+
+.fc .fc-timegrid-axis {
+  background-color: #f8fafc;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+.fc-timegrid-event-harness-inset {
+  /* border-width:0 !important;
+  box-shadow: 0 !important; */
+}
+
+/* global.css */
+
+.fc .fc-timegrid-event {
+  border: none;
+  background-color: #efc397;
+  color: white;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  padding: 0rem !important;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); */
+}
+
+.fc .fc-timegrid-event:hover {
+  background-color: #efc397;
+}
+
+.fc-header-toolbar {
+  display: none !important;
+  /* max-width: 100vw !important; */
+}
+
+.fc .fc-event-title {
+  font-weight: 500;
+}
+
+.fc .fc-highlight {
+  background-color: rgba(37, 99, 235, 0.2) !important;
+}
+
+.fc .fc-now-indicator {
+  background-color: red;
+}
+
+/* Selection styling */
+.fc .fc-daygrid-day.fc-day-today,
+.fc .fc-timegrid-col.fc-day-today {
+  background-color: #fefce8 !important;
+}
+
+.fc .fc-event.fc-event-draggable {
+  cursor: move;
+}
+
+/* Disable Friday */
+/* .fc-day-fri {
+  background-color: #fafafb;
+  color: #9ca3af;
+} */
+
+/* Scrollbar styling */
+.fc .fc-scroller::-webkit-scrollbar {
+  width: 6px;
+}
+.fc .fc-scroller::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 3px;
+}
+/* FullCalendar root container */
+.fc {
+  background-color: #fafafb !important;
+}
+
+/* Optional wrapper if you use an external <div className="calendar-wrapper"> */
+.calendar-wrapper {
+  background-color: #fafafb;
+  padding: 1rem;
+  border-radius: 0.75rem;
+}
+
+/* Grid background */
+.fc .fc-scrollgrid,
+/* .fc .fc-timegrid-slot, */
+.fc .fc-timegrid,
+.fc .fc-daygrid-body,
+.fc .fc-daygrid-day {
+  background-color: #fafafb !important;
+}
+
+/* Today's highlight cell */
+.fc .fc-daygrid-day.fc-day-today,
+.fc .fc-timegrid-col.fc-day-today {
+  background-color: #95adc4 !important; /* Slight difference for contrast */
+}
+
+/* Header cells */
+.fc .fc-col-header-cell {
+  background-color: #fafafb; /* optional: slightly darker header */
+}
+
+/* Hides the 30-min or minor slots */
+/* .fc .fc-timegrid-slot.fc-timegrid-slot-lane:nth-child(odd) {
+  border-top: none !important;
+} */
+/* Completely remove minor slot separators */
+/* .fc .fc-timegrid-slot.fc-timegrid-slot-minor {
+  display: none !important;
+} */

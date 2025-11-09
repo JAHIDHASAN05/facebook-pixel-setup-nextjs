@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Script from "next/script";
 
 export default function FacebookPixel() {
@@ -29,11 +30,13 @@ export default function FacebookPixel() {
 
       {/* NoScript fallback */}
       <noscript>
-        <img
+        <Image
           height="1"
+          alt="facebook-pixel"
           width="1"
           style={{ display: "none" }}
-          src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
+          // src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
+           src={`https://www.facebook.com/tr?id=${process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID}&ev=PageView&noscript=1`}
         />
       </noscript>
     </>

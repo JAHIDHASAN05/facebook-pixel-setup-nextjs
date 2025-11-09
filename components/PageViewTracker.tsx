@@ -14,7 +14,7 @@ export const event = (name: string, options = {}) => {
   fbq("track", name, options);
 };
 
-// For tracking custom events (not standard Pixel ones)
+
 export const customEvent = (name: string, options = {}) => {
   fbq("trackCustom", name, options);
 };
